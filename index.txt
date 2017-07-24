@@ -12,29 +12,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script type="text/javascript">
+          
+          var url_string   = window.location.href; 
+          var url = new URL(url_string);
+          var lang = url.searchParams.get("lang");
+          console.log(lang);
+
+          if(lang =="es")
+            document.getElementById("eliminar").delete();
+
+    </script>
+
+
   </head>
   <body data-spy="scroll" data-target="#myScrollspy">
 
+
+
       <!-- INICIO DE BARRA DE NAVEGACION -->
 
-    <!-- Fixed Nav -->
-    <nav class="navbar navbar-default navbar-fixed-top" id="myScrollspy">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png" alt="SCG"></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#spyini">INICIO</a></li>
-            <li><a href="#spyservices">SERVICIOS</a></li>
+  	<!-- Fixed Nav -->
+  	<nav class="navbar navbar-default navbar-fixed-top" id="myScrollspy">
+  		<div class="container">
+  			<div class="navbar-header">
+  				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+  					<span class="sr-only">Toggle navigation</span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  					<span class="icon-bar"></span>
+  				</button>
+  				<a class="navbar-brand" href="#"><img class="logo" src="img/logo.png" alt="SCG"></a>
+  			</div>
+  			<div id="navbar" class="navbar-collapse collapse">
+  				<ul class="nav navbar-nav navbar-right">
+  					<li><a href="#spyini">INICIO</a></li>
+  					<li><a href="#spyservices">SERVICIOS</a></li>
             <li><a href="#spyquien">QUIENES SOMOS</a></li>
-            <li><a href="index2.html">ALQUILER DE OFICINAS</a></li>
+  					<li><a href="index2.html">ALQUILER DE OFICINAS</a></li>
             <li><a href="#spyproyects">PROYECTOS</a></li>
             <li><a href="#spycontact">CONTÁCTENOS</a></li>
             <li>
@@ -45,11 +61,11 @@
                 </ul>
               </li>
             </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- //Close Fixed Nav -->
+  				</ul>
+  			</div>
+  		</div>
+  	</nav>
+  	<!-- //Close Fixed Nav -->
 <!---FIN DE BARRA DE NAVEGACION   !-->
 
   <div id="spyini">
@@ -132,24 +148,23 @@
 
 
 <div class="form-contact">
-  <form action="MAILTO:info@scgbusiness.com" method="post" enctype="text/plain">
+  <form>
     <div class="form-group">
       <label for="name">Nombre y Apellido:</label>
-      <input type="text" name="nombre" class="form-control" id="name">
+      <input type="email" class="form-control" id="name">
     </div>
     <div class="form-group">
       <label for="telefono">Teléfono:</label>
-      <input type="text" class="form-control" id="telefono" name="telefono">
+      <input type="text" class="form-control" id="telefono">
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" name="correo">
+      <input type="text" class="form-control" id="email">
     </div>
     <div class="form-group">
       <label for="mensaje">Mensaje:</label>
-      <textarea class="form-control" id="mensaje" name="mensaje"></textarea>
+      <textarea class="form-control" id="mensaje"></textarea>
     </div>
-    <button type="submit" name="button" class="enviar" style="display:none;"></button>
   </form>
   <div class="contactar">
     <div class="cont" >
@@ -221,6 +236,8 @@
 
 
 
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="js/jquery.scrollme.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -317,56 +334,83 @@ var valor = {
 <script src="js/data.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
-<div id="google_translate_element"></div>
+<script type="text/javascript">
 
 
-    <script id="eliminar" type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-    }
-    </script>
-    <script type="text/javascript">
+  var url_string   = window.location.href; 
+  var url = new URL(url_string);
+  var lang = url.searchParams.get("lang");
+  console.log(lang);
+
+  if(lang =="es")
+    document.getElementById("eliminar").delete();
 
 
-      var url_string   = window.location.href;
-      var url = new URL(url_string);
-      var lang = url.searchParams.get("lang");
 
-      if(lang =="es"){
-        $("#google_translate_element").remove();
-        $("#eliminar").remove();
-        //$("#eliminar2").remove();
+
+  //$.cookie('googtrans','/en/es');
+
+
+   $( document ).ready(function() {
+
+      if(lang == "en"){
+        $("#activo").attr("src","img/english.png");
+        $("#inactivo").parent().attr("href",'index.html?lang=es');
+        $("#inactivo").attr("src","img/spanish.png");
+      }else if (lang == "es"){
+        
+        $("#activo").attr("src","img/spanish.png");
+        $("#inactivo").parent().attr("href",'index.html?lang=en');
+        $("#inactivo").attr("src","img/english.png");
       }
 
-       $( document ).ready(function() {
+      if(lang == "es"){
+        Cookies.set('googtrans', '/es/es');
+        //$.cookie("googtrans","/es/es")
+      }
+      else if(lang== "en")
+        Cookies.set('googtrans', '/es/en');
+        //$.cookie("googtrans","/es/en")
 
-          if(lang == "en"){
-            $("#activo").attr("src","img/english.png");
-            $("#inactivo").parent().attr("href",'index.html?lang=es');
-            $("#inactivo").attr("src","img/spanish.png");
-          }else if (lang == "es"){
+  });
 
-            $("#activo").attr("src","img/spanish.png");
-            $("#inactivo").parent().attr("href",'index.html?lang=en');
-            $("#inactivo").attr("src","img/english.png");
-          }
+  
+  /*$( document ).ready(function() {
 
-          if(lang == "es"){
-            //Cookies.set('googtrans', '/es/es');
-            console.log("es");
-          }
-          //else if(lang== "en")
-            //Cookies.set('googtrans','/es/en');
+    function cambiar(idioma){
+      $.cookie('googtrans',idioma);
+    }
 
-          $(".cont").click(function(){
-            $(".enviar").click();
-          });
+    var bool = false 
 
-      });
+    $("#inactivo").click(function(){
+      console.log("ok");
+      var inactivo = $(this).attr("src");
+      var activo = $("#activo").attr("src");
+      $("#activo").attr("src",inactivo);
+      $(this).attr("src",activo);
+
+      if(bool)
+        cambiar('/es/en')
+      else
+        cambiar('/en/es')
+      bool = !bool
+    });
+
+  });
+  */
 
 
+
+
+</script>
+
+    <div id="google_translate_element"></div>
+    <script id="eliminar" type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
     </script>
-    <script id="eliminar2" type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   </body>
 </html>
