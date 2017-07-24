@@ -1,0 +1,177 @@
+body{
+  font-family: 'Ek Mukta', sans-serif;
+  margin: 0px;
+}
+
+li > a{
+  color: #656362;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Nav / Navbar Styles
+===================================*/
+.navbar {
+
+	border-bottom: none;
+	padding: 10px 0 10px;
+	transition-duration: 0.6s;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-default .navbar-nav>li:last-of-type {
+	margin-right: 0;
+}
+.dropdown-menu,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus {
+	background: rgba(24,53,50, 0.1);
+}
+.dropdown-menu {
+
+	box-shadow: none;
+	border: none;
+}
+.dropdown-menu li a {
+	padding: 4px 8px;
+	border-radius: 6px;
+}
+.nav-dropdown-scroll {
+	background: #e7eaea;
+	box-shadow: 0px 10px 9px rgba(0, 0, 0, 0.4);
+}
+.navbar-toggle,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+	background: #fff;
+}
+
+/* END Nav / Navbar Styles
+===================================*/
+nav{
+  background-color: #ffffff !important;
+}
+
+.owl-next{
+  float: right;
+  background-image: url("../img/next.png")!important;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: -288px;
+  margin-right: 36px;
+}
+
+.owl-prev{
+  float: left;
+  background-image: url("../img/prev.png")!important;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: -288px;
+  margin-left: 36px;
+}
+
+.item-title{
+  color: #2f2f2f;
+  text-align: left;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.item-body{
+  text-align: left;
+  line-height: 1.17;
+  color: #979797;
+  font-size: 14px;
+  font-weight: lighter!important;
+}
+
+
+.parallax {
+    /* The image used */
+    background-image: url("../img/1440x662.jpg");
+    /* Set a specific height */
+    height: 500px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#spyservices{
+  padding-top: 60px;
+
+}
+
+.contact-body1{
+  font-size: 18px;
+  font-weight: lighter!important;
+}
+
+.owl-item > .active{
+  opacity: 0.1;
+}
+
+.modal-header {
+   font-family: 'Ek Mukta', sans-serif!important;
+   text-align: center;
+    padding:9px 15px;
+    color: #fff;
+    border-bottom:1px solid #eee;
+    background-color: #2f6b7a;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
+
+ .modal-header > h4{
+   font-family: 'Ek Mukta', sans-serif!important;
+   font-size: 25px!important;
+   font-weight: lighter;
+ }
+
+ .textservicio > p {
+     font-family: 'Ek Mukta', sans-serif!important;
+     font-size: 16px;
+     font-weight: lighter;
+ }
+
+ .modal-backdrop
+{
+    background: #236072!important;
+    opacity:0.9 !important;
+}
+
+.textservicio{
+  color: #6d7274;
+}
+
+.textservicio li{
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .contact-body1{
+    font-size: 14px!important;
+    padding-right: 1em;
+    width: 100%!important;
+  }
+  .banner-box{
+    font-size: 12px;
+    padding-left:  0px!important;
+    padding-right: 1em;
+  }
+}

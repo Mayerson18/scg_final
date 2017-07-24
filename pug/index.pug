@@ -1,0 +1,62 @@
+//output:../panel.html
+
+mixin Mas()
+  .relative
+    a.btn-floating.halfway-fab.waves-effect.waves-light.blue
+      i.material-icons add
+      
+mixin Rows(x,c)
+  .row.margin0
+    .input-field.col.s12
+      input.validate(class="#{c}" type="text" id="#{x}")
+      label(for="#{x}") #{x}    
+      
+mixin Lis(id,idNum,num,x,y,enviar,className,classInput)
+  li
+    .collapsible-header
+      span.new.badge(data-badge-caption="" id="#{idNum}") #{num}
+      h5 #{x}
+    .collapsible-body(id="#{id}")
+      form
+        each val in y
+          +Rows(val,classInput)
+      if enviar === true
+        .flex-end
+          a.waves-effect.waves-light.btn.click(class="#{className}") Enviar
+            i.material-icons.right send
+      
+
+doctype
+html(lang="es_CR")
+  head
+    title="Panel de Control"
+    meta(charset="utf8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
+    link(rel="stylesheet" href="sass/panel.min.css")
+    
+  body
+    nav
+      .nav-wrapper
+        .col.s12
+          a.breadcrumb.active(href="#!") Home
+          a.breadcrumb.coki(href="#!") Productos
+
+-var titulos = ["titulo1","titulo2","titulo3","titulo4"]
+-var servicios = ["servicio1"]
+-var titulos = ["titulo1","titulo2","titulo3","titulo4"]
+    .row.pad
+      ul.col.s12.collapsible(data-collapsible="accordion")
+        //(x,y,enviar,className,classInput)
+        +Lis("titulos","num-titulos","4","Titulos",titulos,true,"update-titulos","i-titulos")
+        +Lis("servicios","num-servicios","4","Nuestros Servicios",[],false,"update-servicios","i-servicios")
+        //+Lis("4","Titulos",titulos,true,"update-titulos","i-titulos")
+                
+  
+script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js")
+script(src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js")
+script(src="js/panel.js")
