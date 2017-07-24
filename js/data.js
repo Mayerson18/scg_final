@@ -125,7 +125,7 @@ $( document ).ready(function() {
               ${x.texto}
             </p>\
            <div class="leer"  data-valserv = "${x.id}" >\
-             Leer Mas\
+             Leer Más\
            </div>\
         </div>\
       </div>`

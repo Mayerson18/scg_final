@@ -41,9 +41,9 @@
             <li><a href="#spycontact">CONTÁCTENOS</a></li>
             <li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="activo" src="img/spanish.png" alt=""></a>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="activo" src="img/spanish.png" alt=""></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><img src="img/english.png" id="inactivo" alt=""></a></li>
+                  <li><a href="index.html?lang=en"><img src="img/english.png" id="inactivo" alt=""></a></li>
                 </ul>
               </li>
             </li>
@@ -178,7 +178,7 @@
         <p class="sub-telefono">Teléfono</p>
       </div>
     </div>
-    <p class="address"><strong>Dirección :</strong>Edificio SCG, de la rotonda de Multiplaza de Escazú, 900 metros norte, Guachipelin, Costa Rica.
+    <p class="address"><strong>Dirección:</strong> Edificio SCG, de la rotonda de Multiplaza de Escazú, 900 metros norte, Guachipelin, Costa Rica.
 </p>
        <div class="email">
          <div class="email-in">
@@ -255,7 +255,7 @@ var valor = {
       img : "img/lcard3.jpg"
     },
     d:{
-      titulo : "ANALISIS DE NEGOCIO",
+      titulo : "ANÁLISIS DE NEGOCIO",
       texto : "<p>Acompañamos a nuestros clientes en la  toma de decisiones estratégicas, claves para el crecimiento de su negocio: </p><ul><li>Validación de requerimientos para reingeniería de procesos. </li><li>Análisis y recomendación de soluciones de mejora continuas. </li><li>Validación y documentación de problemas y oportunidades de negocio.</li><li>Análisis de requerimientos organizacionales y/u operacionales.</li><li>Estrategias de crecimiento.</li></ul>",
       img : "img/lcard4.jpg"
     },
@@ -325,8 +325,67 @@ var valor = {
 
 <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 <script src="js/data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script type="text/javascript">
-  $.cookie('googstrans','es/en');
+
+
+  var url_string   = window.location.href; 
+  var url = new URL(url_string);
+  var lang = url.searchParams.get("lang");
+  console.log(lang);
+
+
+  $( document ).ready(function() {
+
+      if(lang == "en"){
+        $("#activo").attr("src","img/english.png");
+        $("#inactivo").parent().attr("href",'index.html?lang=es');
+        $("#inactivo").attr("src","img/spanish.png");
+      }else if (lang == "es"){
+        $("#activo").attr("src","img/spanish.png");
+        $("#inactivo").parent().attr("href",'index.html?lang=en');
+        $("#inactivo").attr("src","img/english.png");
+      }
+
+      if(lang == "es")
+        $.cookie("googtrans","/en/es")
+      else if(lang== "en")
+        $.cookie("googtrans","/es/en")
+
+  });
+
+
+  $.cookie('googtrans','/en/es');
+
+  
+  /*$( document ).ready(function() {
+
+    function cambiar(idioma){
+      $.cookie('googtrans',idioma);
+    }
+
+    var bool = false 
+
+    $("#inactivo").click(function(){
+      console.log("ok");
+      var inactivo = $(this).attr("src");
+      var activo = $("#activo").attr("src");
+      $("#activo").attr("src",inactivo);
+      $(this).attr("src",activo);
+
+      if(bool)
+        cambiar('/es/en')
+      else
+        cambiar('/en/es')
+      bool = !bool
+    });
+
+  });
+  */
+
+
+
+
 </script>
   </body>
 </html>

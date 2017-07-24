@@ -32,10 +32,10 @@
             <li><a href="index.html#spyproyects">PROYECTOS</a></li>
             <li><a href="index.html#spycontact">CONTÁCTENOS</a></li>
             <li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="activo" src="img/spanish.png" alt=""></a>
+             <li class="dropdown">
+                <a href="index2.html?lang=es" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="activo" src="img/spanish.png" alt=""></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><img src="img/english.png" id="inactivo" alt=""></a></li>
+                  <li><a href="index2.html?lang=en"><img src="img/english.png" id="inactivo" alt=""></a></li>
                 </ul>
               </li>
             </li>
@@ -120,7 +120,7 @@
         <div class="col-lg-6 col-md-6 col-xs-12 sectionoficina">
           <p class="body-section-1">Tiene una reunión de última hora ¿No tiene oficina actualmente? ¿Desea privacidad y confort?
           <br>
-          Tenemos la solución : Nuestro servicio de oficinas temporales, disponible para su uso por horas, le permitirá poder disfrutar de oficinas ejecutivas con  parqueo , aire acondicionado , servicio telefónico de larga distancia y  wifi por las horas que estime necesario.Solo llame y reserve con anticipación y de la impresión que tanto necesita su negocio al mejor costo del mercado.  Otros beneficios de nuestras oficinas temporales son:
+          Tenemos la solución : Nuestro servicio de oficinas temporales, disponible para su uso por horas, le permitirá poder disfrutar de oficinas ejecutivas con  parqueo, aire acondicionado , servicio telefónico de larga distancia y  wifi por las horas que estime necesario. Solo llame y reserve con anticipación y dé la impresión que tanto necesita su negocio al mejor costo del mercado.  Otros beneficios de nuestras oficinas temporales son:
 
           </p>
           <ul id="ul">
@@ -243,7 +243,7 @@
             <p class="sub-telefono center">Teléfono</p>
           </div>
         </div>
-        <p class="address"><strong>Dirección :</strong>Edificio SCG, de la rotonda de Multiplaza de Escazú, 900 metros norte, Guachipelin, Costa Rica.
+        <p class="address"><strong>Dirección:</strong> Edificio SCG, de la rotonda de Multiplaza de Escazú, 800 metros norte, Guachipelin, Costa Rica.
     </p>
            <div class="email">
              <div class="center">
@@ -254,15 +254,49 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
     <div id="google_translate_element"></div>
     <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
     }
     </script>
-    <script type="text/javascript">
-      $.cookie('googstrans','es/en');
-    </script>
+
+
+<script type="text/javascript">
+
+
+  var url_string   = window.location.href; 
+  var url = new URL(url_string);
+  var lang = url.searchParams.get("lang");
+  console.log(lang);
+
+
+  $( document ).ready(function() {
+
+      if(lang == "en"){
+        $("#activo").attr("src","img/english.png");
+        $("#inactivo").parent().attr("href",'index2.html?lang=es');
+        $("#inactivo").attr("src","img/spanish.png");
+      }else if (lang == "es"){
+        $("#activo").attr("src","img/spanish.png");
+        $("#inactivo").parent().attr("href",'index2.html?lang=en');
+        $("#inactivo").attr("src","img/english.png");
+      }
+
+      if(lang == "es")
+        $.cookie("googtrans","/en/es")
+      else if(lang== "en")
+        $.cookie("googtrans","/es/en")
+
+  });
+  
+  $.cookie('googtrans','/en/es');
+
+
+</script>
 
   </body>
 </html>

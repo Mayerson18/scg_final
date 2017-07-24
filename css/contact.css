@@ -3,6 +3,10 @@
   margin-bottom: 77px;
 }
 
+#google_translate_element{display:none!important;}
+
+.goog-te-banner-frame{display:none!important;}
+
 .contact-top{
   color: #ffffff;
   background-color: #2b7f8d;
