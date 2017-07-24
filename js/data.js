@@ -56,7 +56,7 @@ $( document ).ready(function() {
        $(".owl-next").text("");
 
       $(".telefono").text(contactenos.telefono);
-      $(".address").html(`<strong>Dirección</strong>${contactenos.direccion}`);
+      $(".address").html(`<strong>Dirección </strong>${contactenos.direccion}`);
       $(".email-in").text(contactenos.correo);
       $(".telefono").text(contactenos.telefono);
       $(".p-contact").text(contactenos.texto);
@@ -302,7 +302,7 @@ $( document ).ready(function() {
           titulo: "Contáctenos",
           texto: "Ofrecemos servicios profesionales de estructuración y desarrollo de proyectos inmobiliarios, que satisfacen los requerimientos y necesidades de nuestros clientes antes, durante y después de finalizado el proyecto, cumpliendo con los estándares de calidad y plazos definidos.",
           telelfono:"(506) 2215 5000",
-          direccion: "Edificio SCG, de la rotonda de Multiplaza de Escazú, 900 metros norte, Guachipelin, Costa Rica.",
+          direccion: " Edificio SCG, de la rotonda de Multiplaza de Escazú, 900 metros norte, Guachipelin, Costa Rica.",
           correo: "info@scgbusiness.com"
         }
       });

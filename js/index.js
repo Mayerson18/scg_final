@@ -58,10 +58,6 @@ $(document).ready(function(){
 */
   $(".owl-next").click();
 
-  	function cambiar(idioma){
-  		$.cookie('googtrans',idioma);
-  	}
-
 
 
 
