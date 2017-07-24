@@ -36,3 +36,9 @@ input{ color: black; }
   display: flex;
   flex-wrap: wrap;
 }
+
+.btn-floating{
+  position: fixed!important;
+  right: 24px!important;
+  bottom: 31px!important;
+}

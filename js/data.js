@@ -13,7 +13,7 @@ $( document ).ready(function() {
   firebase.initializeApp(config);
 
     var vista1 = firebase.database().ref().child('vista1');
-    vista1.on('value', function(snap) {
+    vista1.once('value', function(snap) {
       const x = snap.val();
       const titulos = x.titulos;
       const nosotros = x.nosotros;
@@ -44,17 +44,16 @@ $( document ).ready(function() {
         ret += Proyectos(proyectos[i]);
       }
       $("#owl-demo").html(ret);
-
-       $('.owl-carousel').owlCarousel({
-        items: 2,
-        margin: 56,
-        center:true,
-        nav : true,
-        loop:true,
-        dots: true
+      $('.owl-carousel').owlCarousel({
+       items: 2,
+       margin: 56,
+       center:true,
+       nav : true,
+       loop:true,
+       dots: true
       });
-        $(".owl-prev").text("");
-        $(".owl-next").text("");
+       $(".owl-prev").text("");
+       $(".owl-next").text("");
 
       $(".telefono").text(contactenos.telefono);
       $(".address").html(`<strong>Dirección</strong>${contactenos.direccion}`);
@@ -132,7 +131,7 @@ $( document ).ready(function() {
       </div>`
       return ret;
     }
-    Send();
+    //Send(); DATA de REspaldos
 
 
     function Send(){

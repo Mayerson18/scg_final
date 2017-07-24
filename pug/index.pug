@@ -45,13 +45,18 @@ html(lang="es_CR")
           a.breadcrumb.coki(href="#!") Productos
 
 -var titulos = ["titulo1","titulo2","titulo3","titulo4"]
--var servicios = ["servicio1"]
--var titulos = ["titulo1","titulo2","titulo3","titulo4"]
+-var nosotros = ["titulo","parrafo1","parrafo2","imagen"]
+-var parallax = ["principal","texto1","negrita1","texto2","negrita2"]
+
     .row.pad
       ul.col.s12.collapsible(data-collapsible="accordion")
         //(x,y,enviar,className,classInput)
         +Lis("titulos","num-titulos","4","Titulos",titulos,true,"update-titulos","i-titulos")
         +Lis("servicios","num-servicios","4","Nuestros Servicios",[],false,"update-servicios","i-servicios")
+        +Lis("nosotros","num-nosotros","4","Nosotros",nosotros,true,"update-nosotros","i-nosotros")
+        +Lis("parallax","num-parallax","5","Parallax",parallax,true,"update-parallax","i-parallax")
+        +Lis("equipo","num-equipo","5","Nuestro Equipo",[],false,"update-equipo","i-equipo")
+        +Lis("proyectos","num-proyectos","5","Nuestros Proyectos",[],false,"update-proyectos","i-proyectos")
         //+Lis("4","Titulos",titulos,true,"update-titulos","i-titulos")
                 
   

@@ -25,7 +25,6 @@ $( document ).ready(function() {
       let equipo = x.equipo;
       let i =0;
 
-      console.log(titulos);
       $("#titulo1").val(titulos.titulo)
       $("#titulo1").siblings("label").addClass("active")
       $("#titulo2").val(titulos.titulo2)
@@ -35,11 +34,29 @@ $( document ).ready(function() {
       $("#titulo4").val(titulos.titulo4)
       $("#titulo4").siblings("label").addClass("active")
 
-      const length = servicios.length
-      $("#num-servicios").text(length);
-      console.log(length)
-      let ret = `<ul class="collection black">`
+      $("#titulo").val(nosotros.titulo)
+      $("#titulo").siblings("label").addClass("active")
+      $("#parrafo1").val(nosotros.p1)
+      $("#parrafo1").siblings("label").addClass("active")
+      $("#parrafo2").val(nosotros.p2)
+      $("#parrafo2").siblings("label").addClass("active")
+      $("#imagen").val(nosotros.img)
+      $("#imagen").siblings("label").addClass("active")
 
+      $("#principal").val(parallax.titulo)
+      $("#principal").siblings("label").addClass("active")
+      $("#texto1").val(parallax.texto1)
+      $("#texto1").siblings("label").addClass("active")
+      $("#texto2").val(parallax.texto2)
+      $("#texto2").siblings("label").addClass("active")
+      $("#negrita1").val(parallax.negrita1)
+      $("#negrita1").siblings("label").addClass("active")
+      $("#negrita2").val(parallax.negrita2)
+      $("#negrita2").siblings("label").addClass("active")
+
+      let length = servicios.length
+      $("#num-servicios").text(length);
+      let ret = `<ul class="collection black">`
       for (let i = 0; i < length; i++) {
         let li = `
         <li class="collection-item avatar">\
@@ -52,46 +69,60 @@ $( document ).ready(function() {
             <textarea maxlength="216" class="i-servicios">${servicios[i].texto}</textarea>\
           </div>
           </p>\
-          <a href="#!" id="${i}" class="secondary-content r3"><i class="material-icons">edit</i></a>\
-          <a href="#!" class="secondary-content"><i class="material-icons">close</i></a>\
+          <a href="#!" id="${i}" class="secondary-content r3 edit-servicios"><i class="material-icons">edit</i></a>\
+          <a href="#!" data-id="${i}" class="secondary-content borrar-servicios"><i class="material-icons">close</i></a>\
         </li>`
         ret+=li
       }
-      ret+="</ul>";
+      ret+=`</ul><div class="relative"><a id="add-servicio" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"> add</i></a></div>`;
       $("#servicios").html(ret);
 
-/*
-      $(".cartas").html(Ret(servicios,"","card",3));
-      $("#equipo").html(Ret(equipo,"our","equipo",4));
-
-      $("#nosotros-titulo").text(nosotros.titulo);
-      $("#nosotros-p1").text(nosotros.p1);
-      $("#nosotros-p2").text(nosotros.p2);
-      $("#nosotros-img").text(nosotros.img);
-      $("#parallax-titulo").text(parallax.titulo);
-      $("#parallax-texto1").text(parallax.texto1);
-      $("#parallax-texto2").text(parallax.texto2);
-      $("#parallax-negrita1").text(parallax.negrita1);
-      $("#parallax-negrita2").text(parallax.negrita2);
-      let ret = ""
-      for (let i = 0; i < proyectos.length; i++) {
-        ret += Proyectos(proyectos[i]);
+      length = equipo.length
+      $("#num-equipo").text(length);
+      ret = `<ul class="collection black">`
+      for (let i = 0; i < length; i++) {
+        let li = `
+        <li class="collection-item avatar">\
+          <i class="material-icons circle">folder</i>\
+          <div class="cotainer-i-equipo">\
+              ${Inputs("cargo",equipo[i].cargo)}
+              ${Inputs("nombre",equipo[i].nombre)}
+              ${Inputs("texto",equipo[i].texto)}
+          </div>
+          </p>\
+          <a href="#!" id="${i}" class="secondary-content r3 edit-equipo"><i class="material-icons">edit</i></a>\
+          <a href="#!" data-id="${i}" class="secondary-content borrar-equipo"><i class="material-icons">close</i></a>\
+        </li>`
+        ret+=li
       }
+      ret+=`</ul><div class="relative"><a id="add-equipo" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"> add</i></a></div>`;
+      $("#equipo").html(ret);
 
-      $(".telefono").text(contactenos.telefono);
-      $(".address").html(`<strong>Dirección</strong>${contactenos.direccion}`);
-      $(".email-in").text(contactenos.correo);
-      $(".telefono").text(contactenos.telefono);
-      $(".p-contact").text(contactenos.texto);*/
+      length = proyectos.length
+      $("#num-proyectos").text(length);
+      ret = `<ul class="collection black">`
+      for (let i = 0; i < length; i++) {
+        let li = `
+        <li class="collection-item avatar">\
+          <i class="material-icons circle">folder</i>\
+          <div class="cotainer-i-proyectos">\
+              ${Inputs("imagenes",proyectos[i].img)}
+              ${Inputs("imagenPrincipal",proyectos[i].src)}
+              ${Inputs("titulo",proyectos[i].titulo)}
+              ${Inputs("texto",proyectos[i].texto)}
+          </div>
+          </p>\
+          <a href="#!" id="${i}" class="secondary-content r3 edit-proyectos"><i class="material-icons">edit</i></a>\
+          <a href="#!" data-id="${i}" class="secondary-content borrar-proyectos"><i class="material-icons">close</i></a>\
+        </li>`
+        ret+=li
+      }
+      ret+=`</ul><div class="relative"><a id="add-proyectos" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"> add</i></a></div>`;
+      $("#proyectos").html(ret);
+
     });
 
-
-    //$(".update-titulos").click(updateTitulos());
-    $(".update-titulos").on("click",function(){
-      updateTitulos();
-    });
-
-    $(document).on("click",".r3",function(){
+    $(document).on("click",".edit-servicios",function(){
       let padre = ($(this).siblings(".cotainer-i-servicios"));
       let array = []
       padre.children().each(function(index,val){
@@ -102,7 +133,90 @@ $( document ).ready(function() {
       updateServicios(array,$(this).attr("id"));
     });
 
+    $(document).on("click","#add-servicio",function(){
+      addServicios();
+    });
+
+    $(document).on("click",".borrar-servicios",function(){
+      removeServicios($(this).attr("data-id"));
+    });
+
+    $(document).on("click",".edit-equipo",function(){
+      let padre = ($(this).siblings(".cotainer-i-equipo"));
+      let array = []
+      padre.children().each(function(index,val){
+        array.push($(val).find("input").val());
+      });
+      updateEquipo(array,$(this).attr("id"));
+    });
+
+    $(document).on("click","#add-equipo",function(){
+      addEquipo();
+    });
+
+    $(document).on("click",".borrar-equipo",function(){
+      removeEquipo($(this).attr("data-id"));
+    });
+
+    $(document).on("click",".edit-proyectos",function(){
+      let padre = ($(this).siblings(".cotainer-i-proyectos"));
+      let array = []
+      padre.children().each(function(index,val){
+        array.push($(val).find("input").val());
+      });
+      updateProyectos(array,$(this).attr("id"));
+    });
+
+    $(document).on("click","#add-proyectos",function(){
+      addProyectos();
+    });
+
+    $(document).on("click",".borrar-proyectos",function(){
+      removeProyectos($(this).attr("data-id"));
+    });
+
+
+
+
+    $(".update-titulos").on("click",function(){
+      updateTitulos();
+    });
+
+    $(".update-nosotros").on("click",function(){
+      updateNosotros();
+    });
+
+    $(".update-parallax").on("click",function(){
+      updateParallax();
+    });
 });
+
+function addServicios(){
+  var serviciosRef = firebase.database().ref(`vista1/servicios`);
+  let temporal;
+  serviciosRef.on('value', function(snap) {
+    temporal= snap.val();
+  })
+  let tam = temporal.length;
+  let abc = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+  let objeto = {
+    "id": abc[tam],
+    "img": "",
+    "imgModal": "",
+    "linea1": "",
+    "linea2": "",
+    "linea3": "",
+    "texto": "",
+    "textoModal": ""
+  }
+  temporal.push(objeto);
+  serviciosRef.set (temporal);
+};
+
+function removeServicios(id){
+  var serviciosRef = firebase.database().ref(`vista1/servicios/${id}`);
+  serviciosRef.remove ();
+};
 
 function updateServicios(x,index){
   var serviciosRef = firebase.database().ref(`vista1/servicios/${index}`);
@@ -117,9 +231,75 @@ function updateServicios(x,index){
   });
 };
 
+function removeEquipo(id){
+  var equipoRef = firebase.database().ref(`vista1/equipo/${id}`);
+  equipoRef.remove ();
+};
+
+function updateEquipo(x,index){
+  var equipoRef = firebase.database().ref(`vista1/equipo/${index}`);
+  equipoRef.update ({
+    "cargo": x[0],
+    "nombre": x[1],
+    "texto": x[2]
+  },function(callback){
+    Mensaje("Datos guardados correctamente");
+  });
+};
+
+function addEquipo(){
+  var equipoRef = firebase.database().ref(`vista1/equipo`);
+  let temporal;
+  equipoRef.on('value', function(snap) {
+    temporal= snap.val();
+  })
+  let tam = temporal.length;
+  let objeto = {
+    "cargo": "",
+    "nombre": "",
+    "texto": ""
+  }
+  temporal.push(objeto);
+  equipoRef.set (temporal);
+};
+
+function removeProyectos(id){
+  var proyectosRef = firebase.database().ref(`vista1/proyectos/${id}`);
+  proyectosRef.remove ();
+};
+
+function updateProyectos(x,index){
+  var proyectosRef = firebase.database().ref(`vista1/proyectos/${index}`);
+  proyectosRef.update ({
+    "img": x[0],
+    "src": x[1],
+    "titulo": x[2],
+    "texto": x[3]
+  },function(callback){
+    Mensaje("Datos guardados correctamente");
+  });
+};
+
+function addProyectos(){
+  var proyectosRef = firebase.database().ref(`vista1/proyectos`);
+  let temporal;
+  proyectosRef.on('value', function(snap) {
+    temporal= snap.val();
+  })
+  let tam = temporal.length;
+  let objeto = {
+    "img": "",
+    "src": "",
+    "titulo": "",
+    "texto": ""
+  }
+  temporal.push(objeto);
+  proyectosRef.set (temporal);
+};
+
     function Inputs(id,texto){
      return  `<div class="input-field">\
-        <input id="${id}" type="text" value="${texto}" maxlength="16" class="i-servicios">\
+        <input id="${id}" type="text" value='${texto}' class="i-servicios">\
         <label for="${id}" class="active"> ${id}</label>\
       </div>`;
     }
@@ -140,6 +320,42 @@ function updateServicios(x,index){
          "titulo2": tit2,
          "titulo3": tit3,
          "titulo4": tit4
+      },function(callback){
+        Mensaje("Datos guardados correctamente");
+      });
+    };
+
+    function updateNosotros(){
+      var nosotrosRef = firebase.database().ref("vista1/nosotros");
+      let tit1 = $($(".i-nosotros")[0]).val();
+      let tit2 = $($(".i-nosotros")[1]).val();
+      let tit3 = $($(".i-nosotros")[2]).val();
+      let tit4 = $($(".i-nosotros")[3]).val();
+
+      nosotrosRef.update ({
+         "titulo": tit1,
+         "p1": tit2,
+         "p2": tit3,
+         "img": tit4
+      },function(callback){
+        Mensaje("Datos guardados correctamente");
+      });
+    };
+
+    function updateParallax(){
+      var parallaxRef = firebase.database().ref("vista1/parallax");
+      let tit1 = $($(".i-parallax")[0]).val();
+      let tit2 = $($(".i-parallax")[1]).val();
+      let tit3 = $($(".i-parallax")[2]).val();
+      let tit4 = $($(".i-parallax")[3]).val();
+      let tit5 = $($(".i-parallax")[4]).val();
+
+      parallaxRef.update ({
+         "titulo": tit1,
+         "texto1": tit2,
+         "texto2": tit4,
+         "negrita1": tit3,
+         "negrita2": tit5
       },function(callback){
         Mensaje("Datos guardados correctamente");
       });

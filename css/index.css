@@ -10,6 +10,10 @@ li > a{
   font-weight: 400;
 }
 
+.dropdown-menu{
+  min-width: 100%;
+  background-color: white!important;
+}
 /* Nav / Navbar Styles
 ===================================*/
 .navbar {
