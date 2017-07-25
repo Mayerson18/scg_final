@@ -107,36 +107,18 @@
 
       </div>
       <br>
-      <div class="row">
-        <div class="col-lg-2 col-md-2 col-xs-6">
-          <div class="caja caja4"><div class="in">Servicio personalizado a clientes</div></div>
-        </div>
-        <div class="col-lg-2 col-md-2 col-xs-6">
-          <div class="caja caja3"><div class="in">Línea telefónica exclusiva</div></div>
-        </div>
-        <div class="col-lg-2 col-md-2 col-xs-6">
-          <div class="caja caja2"><div class="in">Desvío / transferencias de llamadas</div></div>
-        </div>
-         <div class="col-lg-2 col-md-2 col-xs-6">
-          <div class="caja caja5"><div class="in">Apartado postal en Costa Rica y en USA</div></div>
-        </div>
-        <div class="col-lg-2 col-md-2 col-xs-6">
-          <div class="caja caja6"><div class="in">Servicio de mensajería</div></div>
-        </div>
-        <div class="col-lg-2 col-md-2 col-xs-6">
-          <div class="caja caja1"><div class="in">Servicio de Fax</div></div>
-        </div>
+      <div class="row" id="servicios">
 
       </div>
 
       <div class="row">
-        <h2 class="title-2">Oficinas Físicas</h2>
+        <h2 class="title-2" id="titulo2">Oficinas Físicas</h2>
         <div class="col-lg-6 col-md-6 col-xs-12">
           <img src="img/oficinanew.png" class="img-responsive" alt="SCG">
           <div class="llamenos"><div class="in-llamenos">LLAMENOS AL <strong>+(506) 2215 5000</strong></div></div>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-12 sectionoficina">
-          <p class="body-section-1">Nuestra perfecta ubicación en Guachipelin Escazú, le permitirá disfrutar de su oficina privada en la mejor zona comercial y empresarial del país. Completamente amobladas y con tecnología de punta, SCG le ofrece oficinas físicas permanentes para aumentar tanto su imagen corporativa como su productividad. Al tener los servicios de su oficina física podrá disfrutar de las áreas de cocina y café que son un espacio perfecto para tomar un descanso corto durante la jornada laboral.
+          <p class="body-section-1" id="oficinasFisicas">Nuestra perfecta ubicación en Guachipelin Escazú, le permitirá disfrutar de su oficina privada en la mejor zona comercial y empresarial del país. Completamente amobladas y con tecnología de punta, SCG le ofrece oficinas físicas permanentes para aumentar tanto su imagen corporativa como su productividad. Al tener los servicios de su oficina física podrá disfrutar de las áreas de cocina y café que son un espacio perfecto para tomar un descanso corto durante la jornada laboral.
 
           </p>
 
@@ -145,18 +127,18 @@
 
       <br>
       <div class="row">
-        <h2 class="title-2">Oficinas Temporales</h2>
+        <h2 class="title-2" id="titulo3">Oficinas Temporales</h2>
         <div class="col-lg-6 col-md-6 col-xs-12">
           <img src="img/oficinaweb.png" class="img-responsive" alt="SCG">
           <div class="llamenos"><div class="in-llamenos">LLÁMENOS AL <strong>+(506) 2215 5000</strong></div></div>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-12 sectionoficina">
-          <p class="body-section-1">Tiene una reunión de última hora ¿No tiene oficina actualmente? ¿Desea privacidad y confort?
+          <p class="body-section-1" id="oficinasTemporales">Tiene una reunión de última hora ¿No tiene oficina actualmente? ¿Desea privacidad y confort?
           <br>
           Tenemos la solución : Nuestro servicio de oficinas temporales, disponible para su uso por horas, le permitirá poder disfrutar de oficinas ejecutivas con  parqueo , aire acondicionado , servicio telefónico de larga distancia y  wifi por las horas que estime necesario.Solo llame y reserve con anticipación y de la impresión que tanto necesita su negocio al mejor costo del mercado.  Otros beneficios de nuestras oficinas temporales son:
 
           </p>
-          <ul id="ul">
+          <ul id="ul" class="ul-oficinasTemporales">
             <li class="li"> &nbsp;&nbsp;Oficinas y salas de reuniones lujosamente amobladas.</li>
             <li class="li"> &nbsp;&nbsp;Ambiente de alta tecnología.</li>
             <li class="li"> &nbsp;&nbsp;Líneas telefónicas y de fax únicas para cada cliente.</li>
@@ -170,13 +152,13 @@
       <br>
       <br>
       <div class="row">
-        <h2 class="title-2">Oficinas Virtuales</h2>
+        <h2 class="title-2" id="titulo4">Oficinas Virtuales</h2>
         <div class="col-lg-6 col-md-6 col-xs-12">
           <img src="img/oficina4.jpg" class="img-responsive" alt="SCG">
           <div class="llamenos"><div class="in-llamenos">LLAMENOS AL <strong>+(506) 2215 5000</strong></div></div>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-12 sectionoficina">
-          <p class="body-section-1">Este novedoso concepto de oficina es una opción para la
+          <p class="body-section-1" id="oficinasVirtuales">Este novedoso concepto de oficina es una opción para la
             operación de su empresa, accediendo a manejarla efectivamente desde
             el lugar donde se encuentre. Con este formato usted podrá utilizar
             la dirección física de SCG-Business Center, como domicilio de su
@@ -192,8 +174,8 @@
         <div class="col-lg-6 col-md-6 col-xs-12">
           <h2 class="title-services" style="
     margin-bottom: 30px;
-">Virtual Oro</h2>
-          <ul id="ul">
+" id="titulo5">Virtual Oro</h2>
+          <ul id="ul" class="virtualOro">
             <li class="li"> &nbsp;&nbsp;Domicilio físico de su empresa en SCG Business Centre</li>
             <li class="li"> &nbsp;&nbsp;Toma y reporte de mensajes</li>
             <li class="li"> &nbsp;&nbsp;Descuentos en salas y oficinas</li>
@@ -210,8 +192,8 @@
         <div class="col-lg-6 col-md-6 col-xs-12">
           <h2 class="title-services" style="
     margin-bottom: 30px;
-">Virtual Platinum</h2>
-          <ul id="ul">
+" id="titulo6">Virtual Platinum</h2>
+          <ul id="ul" class="virtualPlatinum">
             <li class="li"> &nbsp;&nbsp;Domicilio físico de su empresa en SCG Business Center</li>
             <li class="li"> &nbsp;&nbsp;Toma y reporte de mensajes</li>
             <li class="li"> &nbsp;&nbsp;Descuento en uso de salas y oficinas</li>

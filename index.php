@@ -18,6 +18,7 @@
   $message = "Nombre: ". $nombre."\nTelefono: ".$telefono."\nCorreo: ".$correo."\nMensaje: ".$mensaje;
 
 
+
   //send email
   if(mail($admin_email, $nombre,$message, $headers)){
 
@@ -28,6 +29,8 @@
   //Email response
   //echo "Thank you for contacting us!";
   }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -75,13 +78,12 @@
             <li><a href="#spyproyects">PROYECTOS</a></li>
             <li><a href="#spycontact">CONTÁCTENOS</a></li>
             <li>
-              <div id="google_translate_element" class="esconder"></div>
-              <!--<li class="dropdown">
+              <li class="dropdown">
                 <a id="activo" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="lang" data-lang="español" src="img/spanish.png" alt="" ></a>
                 <ul class="dropdown-menu">
                   <li><a href="#" id="inactivo"><img class="lang" src="img/english.png" data-lang="inglés"  alt=""></a></li>
                 </ul>
-              </li>-->
+              </li>
             </li>
   				</ul>
   			</div>
@@ -264,39 +266,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="data-modal.js"></script>
-    <script id="eliminar" type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    <?php
+    if (isset($_GET['lang'])) {
+            $lang = $_GET['lang'];
+            if($lang == "en"){
+              ?>
+              <div id="google_translate_element" class="esconder"></div>
+              <script id="eliminar" type="text/javascript">
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element')
+                }
+              </script>
+              <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <?php}
     }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script type="text/javascript">
+     ?>
 
-/*
-      $('#inactivo').click(function() {
-
-          var lang = $("#inactivo").find("img").attr('data-lang');
-          var $frame = $('.goog-te-menu-frame:first');
-          $frame.contents().find('.goog-te-menu2-item span.text:contains(español)').get(0).click();
-          if(lang == "inglés"){
-            $frame.contents().find('.goog-te-menu2-item span.text:contains(inglés)').get(0).click();
-            $("#inactivo").find("img").attr("src","img/spanish.png");
-            $("#activo").attr("src","img/english.png");
-            $("#inactivo").find("img").attr("data-lang","español");
-          }else{
-            $frame.contents().find('.goog-te-menu2-item span.text:contains(español)').get(0).click();
-            $("#inactivo").find("img").attr("src","img/english.png");
-            $("#activo").attr("src","img/spanish.png");
-            $("#inactivo").find("img").attr("data-lang","inglés");
-          }
-          console.log($("#inactivo").find("img").data('lang'));
-      });*/
-
-      $('.cont').click(function() {
-        $(".enviar").click();
-      });
-
-
-    </script>
+    <script type="text/javascript" src="js/bandera.js"></script>
   </body>
 </html>

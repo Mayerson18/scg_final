@@ -44,5 +44,9 @@ input{ color: black; }
 }
 
 .esconder{
-  //display: none;
+  display: none;
+}
+
+label.active{
+  color: #26a69a!important;
 }
