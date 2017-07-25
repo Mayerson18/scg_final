@@ -64,6 +64,7 @@
             <li><a href="index.html#spyproyects">PROYECTOS</a></li>
             <li><a href="index.html#spycontact">CONTÁCTENOS</a></li>
             <li>
+              <div id="google_translate_element" ></div>
             <!--  <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="activo" src="img/spanish.png" alt=""></a>
                 <ul class="dropdown-menu">
@@ -292,11 +293,6 @@
       }
     </script>
     <script id="eliminar2" type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script type="text/javascript">
-    $('.cont').click(function() {
-      $(".enviar").click();
-    });
-    </script>
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
     <script src="js/data2.js"></script>
   </body>
