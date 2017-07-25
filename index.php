@@ -47,6 +47,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+
+
+    <script type="text/javascript">
+      
+       Cookies.set('googtrans','/es/en');
+
+    </script>
+
+
     <style media="screen">
       .esconder{
         display: none!important;
@@ -74,7 +84,7 @@
   					<li><a href="#spyini">INICIO</a></li>
   					<li><a href="#spyservices">SERVICIOS</a></li>
             <li><a href="#spyquien">QUIENES SOMOS</a></li>
-  					<li><a href="index2.html">ALQUILER DE OFICINAS</a></li>
+  					<li><a href="index2.php">ALQUILER DE OFICINAS</a></li>
             <li><a href="#spyproyects">PROYECTOS</a></li>
             <li><a href="#spycontact">CONTÁCTENOS</a></li>
             <li>
@@ -271,14 +281,17 @@
             $lang = $_GET['lang'];
             if($lang == "en"){
               ?>
-              <div id="google_translate_element" class="esconder"></div>
-              <script id="eliminar" type="text/javascript">
-                function googleTranslateElementInit() {
-                  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element')
-                }
-              </script>
-              <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        <?php}
+
+
+              <div id="google_translate_element"></div><script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+              }
+              </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+        <?php
+      }
     }
      ?>
 

@@ -40,6 +40,16 @@
     <link rel="stylesheet" href="css/index2.css">
     <link rel="stylesheet" href="css/contact.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+
+
+    <script type="text/javascript">
+      
+       Cookies.set('googtrans','/es/en');
+
+    </script>
+
   </head>
   <body>
 
@@ -64,8 +74,17 @@
             <li><a href="index.html#spyproyects">PROYECTOS</a></li>
             <li><a href="index.html#spycontact">CONTÁCTENOS</a></li>
             <li>
-              <div id="google_translate_element" ></div>
+              
+              <li class="dropdown">
+                <a id="activo" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="lang" data-lang="español" src="img/spanish.png" alt="" ></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" id="inactivo"><img class="lang" src="img/english.png" data-lang="inglés"  alt=""></a></li>
+                </ul>
+              </li>
+            
+              
             <!--  <li class="dropdown">
+
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img id="activo" src="img/spanish.png" alt=""></a>
                 <ul class="dropdown-menu">
                   <li><a href="#"><img src="img/english.png" id="inactivo" alt=""></a></li>
@@ -269,13 +288,31 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script id="eliminar" type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-      }
-    </script>
-    <script id="eliminar2" type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+
+    <?php
+    if (isset($_GET['lang'])) {
+            $lang = $_GET['lang'];
+            if($lang == "en"){
+              ?>
+
+
+              <div id="google_translate_element"></div><script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+              }
+              </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+        <?php
+      }
+    }
+    ?>
+
+    <script type="text/javascript" src="js/bandera2.js"></script>
+
+
     <script src="js/data2.js"></script>
   </body>
 </html>
