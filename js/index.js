@@ -58,11 +58,12 @@ $(document).ready(function(){
 */
   $(".owl-next").click();
 
-
-
-
-
-
+	$("#inactivo").click(function(){
+		var inactivo = $(this).attr("src");
+		var activo = $("#activo").attr("src");
+		$("#activo").attr("src",inactivo);
+		$(this).attr("src",activo);
+	});
 
 	var i = 0;
 	setInterval(function(){

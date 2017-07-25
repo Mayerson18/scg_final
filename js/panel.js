@@ -1,6 +1,39 @@
 "use strict";
 let w;
 $( document ).ready(function() {
+  $('.breadcrumb').click(function(){
+    $('.breadcrumb').removeClass("active");
+    $(this).addClass("active");
+    const id = $(this).data("id");
+    $(`#${id}`).removeClass("esconder");
+    $(`#${id}`).siblings("div").addClass("esconder");
+  });
+  var tits = ["ALQUILER DE OFICINAS","OFICINAS FISICAS","OFICINAS TEMPORALES","OFICINAS VIRTUALES","VIRTUAL ORO","VIRTUAL PLATINUM"]
+  $(".i-titulos2").each(function(index,val){
+    $(val).val(tits[index]);
+  })
+  var ser2 = ["Servicio personalizado a clientes","Línea telefónica exclusiva","Desvío / transferencias de llamadas","Apartado postal en Costa Rica y en USA","Servicio de mensajería","Servicio de Fax"]
+  $(".i-servicios2").each(function(index,val){
+    $(val).val(ser2[index]);
+  });
+  var oficinasTemporales = ["Tiene una reunión de última hora ¿No tiene oficina actualmente? ¿Desea privacidad y confort? ","Oficinas y salas de reuniones lujosamente amobladas.","Ambiente de alta tecnología.","Líneas telefónicas y de fax únicas para cada cliente.","Servicios de contestador de llamadas personalizado.","Acceso a internet de alta velocidad."]
+  $(".i-oficinasTemporales").each(function(index,val){
+    $(val).val(oficinasTemporales[index]);
+  });
+  var oficinasVirtuales = ["Este novedoso concepto de oficina es una opción para la operación de su empresa, accediendo a manejarla efectivamente desde el lugar donde se encuentre. Con este formato usted podrá utilizar la dirección física de SCG-Business Center, como domicilio de su empresa, para la recepción de documentación y traslado. Cuenta con los servicios de recepción y redirección de llamadas, atención a clientes y/o visitas, disposición de las salas de reuniones y oficinas."]
+  $(".i-oficinasVirtuales").each(function(index,val){
+    $(val).val(oficinasVirtuales[index]);
+  });
+  var virtualOro = ["Domicilio físico de su empresa en SCG Business Centre","Toma y reporte de mensajes","Descuentos en salas y oficinas","Atención de visitas","Recepción de paquetes y documentos"]
+  $(".i-virtualOro").each(function(index,val){
+    $(val).val(virtualOro[index]);
+  });
+  var virtualPlatinum = ["Domicilio físico de su empresa en SCG Business Centre","Toma y reporte de mensajes","Descuentos en salas y oficinas","Atención de visitas","Recepción de paquetes y documentos"]
+  $(".i-virtualPlatinum").each(function(index,val){
+    $(val).val(virtualPlatinum[index]);
+  });
+
+
   $('.modal').modal();
 
   var config = {

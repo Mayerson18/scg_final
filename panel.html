@@ -12,12 +12,12 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <div class="col s12"><a href="#!" class="breadcrumb active">Home</a><a href="#!" class="breadcrumb coki">Productos</a></div>
+        <div class="col s12"><a href="#!" data-id="home" class="breadcrumb active">Home</a><a href="#!" data-id="productos" class="breadcrumb">Productos</a></div>
       </div>
     </nav>
   </body>
 </html>
-<div class="row pad">
+<div id="home" class="row pad">
   <ul data-collapsible="accordion" class="col s12 collapsible">
     <!--(x,y,enviar,className,classInput)-->
     <li>
@@ -153,6 +153,261 @@
       <div id="proyectos" class="collapsible-body">
         <form>
         </form>
+      </div>
+    </li>
+    <!--+Lis("4","Titulos",titulos,true,"update-titulos","i-titulos")-->
+  </ul>
+</div>
+<div id="productos" class="row pad esconder">
+  <ul data-collapsible="accordion" class="col s12 collapsible">
+    <li>
+      <div class="collapsible-header"><span data-badge-caption="" id="num-titulos2" class="new badge">6</span>
+        <h5>Titulos</h5>
+      </div>
+      <div id="titulos2" class="collapsible-body">
+        <form>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="titulo1" class="validate i-titulos2"/>
+              <label for="titulo1">titulo1    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="titulo2" class="validate i-titulos2"/>
+              <label for="titulo2">titulo2    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="titulo3" class="validate i-titulos2"/>
+              <label for="titulo3">titulo3    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="titulo4" class="validate i-titulos2"/>
+              <label for="titulo4">titulo4    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="titulo5" class="validate i-titulos2"/>
+              <label for="titulo5">titulo5    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="titulo6" class="validate i-titulos2"/>
+              <label for="titulo6">titulo6    </label>
+            </div>
+          </div>
+        </form>
+        <div class="flex-end"><a class="waves-effect waves-light btn click update-titulos2">Enviar<i class="material-icons right">send</i></a></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span data-badge-caption="" id="num-servicios2" class="new badge">6</span>
+        <h5>Nuestros Servicios</h5>
+      </div>
+      <div id="servicios2" class="collapsible-body">
+        <form>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="servicios1" class="validate i-servicios2"/>
+              <label for="servicios1">servicios1    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="servicios2" class="validate i-servicios2"/>
+              <label for="servicios2">servicios2    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="servicios3" class="validate i-servicios2"/>
+              <label for="servicios3">servicios3    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="servicios4" class="validate i-servicios2"/>
+              <label for="servicios4">servicios4    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="servicios5" class="validate i-servicios2"/>
+              <label for="servicios5">servicios5    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="servicios6" class="validate i-servicios2"/>
+              <label for="servicios6">servicios6    </label>
+            </div>
+          </div>
+        </form>
+        <div class="flex-end"><a class="waves-effect waves-light btn click update-servicios2">Enviar<i class="material-icons right">send</i></a></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span data-badge-caption="" id="num-oficinasFisicas" class="new badge">1</span>
+        <h5>Oficinas Fisicas</h5>
+      </div>
+      <div id="oficinasFisicas" class="collapsible-body">
+        <form>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="descripcion" class="validate i-oficinasFisicas"/>
+              <label for="descripcion">descripcion    </label>
+            </div>
+          </div>
+        </form>
+        <div class="flex-end"><a class="waves-effect waves-light btn click update-oficinasFisicas">Enviar<i class="material-icons right">send</i></a></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span data-badge-caption="" id="num-oficinasTemporales" class="new badge">6</span>
+        <h5>Oficinas Temporales</h5>
+      </div>
+      <div id="oficinasTemporales" class="collapsible-body">
+        <form>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="descripcion" class="validate i-oficinasTemporales"/>
+              <label for="descripcion">descripcion    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica1" class="validate i-oficinasTemporales"/>
+              <label for="caracteristica1">caracteristica1    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica2" class="validate i-oficinasTemporales"/>
+              <label for="caracteristica2">caracteristica2    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica3" class="validate i-oficinasTemporales"/>
+              <label for="caracteristica3">caracteristica3    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica4" class="validate i-oficinasTemporales"/>
+              <label for="caracteristica4">caracteristica4    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica5" class="validate i-oficinasTemporales"/>
+              <label for="caracteristica5">caracteristica5    </label>
+            </div>
+          </div>
+        </form>
+        <div class="flex-end"><a class="waves-effect waves-light btn click update-oficinasTemporales">Enviar<i class="material-icons right">send</i></a></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span data-badge-caption="" id="num-oficinasVirtuales" class="new badge">5</span>
+        <h5>Oficinas Virtuales</h5>
+      </div>
+      <div id="oficinasVirtuales" class="collapsible-body">
+        <form>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="descripcion" class="validate i-oficinasVirtuales"/>
+              <label for="descripcion">descripcion    </label>
+            </div>
+          </div>
+        </form>
+        <div class="flex-end"><a class="waves-effect waves-light btn click update-oficinasVirtuales">Enviar<i class="material-icons right">send</i></a></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span data-badge-caption="" id="num-virtualOro" class="new badge">5</span>
+        <h5>Virtual Oro</h5>
+      </div>
+      <div id="virtualOro" class="collapsible-body">
+        <form>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica1" class="validate i-virtualOro"/>
+              <label for="caracteristica1">caracteristica1    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica2" class="validate i-virtualOro"/>
+              <label for="caracteristica2">caracteristica2    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica3" class="validate i-virtualOro"/>
+              <label for="caracteristica3">caracteristica3    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica4" class="validate i-virtualOro"/>
+              <label for="caracteristica4">caracteristica4    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica5" class="validate i-virtualOro"/>
+              <label for="caracteristica5">caracteristica5    </label>
+            </div>
+          </div>
+        </form>
+        <div class="flex-end"><a class="waves-effect waves-light btn click update-virtualOro">Enviar<i class="material-icons right">send</i></a></div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span data-badge-caption="" id="num-virtualPlatinum" class="new badge">5</span>
+        <h5>Virtual Platinum</h5>
+      </div>
+      <div id="virtualPlatinum" class="collapsible-body">
+        <form>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica1" class="validate i-virtualPlatinum"/>
+              <label for="caracteristica1">caracteristica1    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica2" class="validate i-virtualPlatinum"/>
+              <label for="caracteristica2">caracteristica2    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica3" class="validate i-virtualPlatinum"/>
+              <label for="caracteristica3">caracteristica3    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica4" class="validate i-virtualPlatinum"/>
+              <label for="caracteristica4">caracteristica4    </label>
+            </div>
+          </div>
+          <div class="row margin0">
+            <div class="input-field col s12">
+              <input type="text" id="caracteristica5" class="validate i-virtualPlatinum"/>
+              <label for="caracteristica5">caracteristica5    </label>
+            </div>
+          </div>
+        </form>
+        <div class="flex-end"><a class="waves-effect waves-light btn click update-virtualPlatinum">Enviar<i class="material-icons right">send</i></a></div>
       </div>
     </li>
     <!--+Lis("4","Titulos",titulos,true,"update-titulos","i-titulos")-->

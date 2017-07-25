@@ -41,14 +41,22 @@ html(lang="es_CR")
     nav
       .nav-wrapper
         .col.s12
-          a.breadcrumb.active(href="#!") Home
-          a.breadcrumb.coki(href="#!") Productos
+          a.breadcrumb.active(href="#!" data-id="home") Home
+          a.breadcrumb(href="#!" data-id="productos") Productos
 
 -var titulos = ["titulo1","titulo2","titulo3","titulo4"]
 -var nosotros = ["titulo","parrafo1","parrafo2","imagen"]
 -var parallax = ["principal","texto1","negrita1","texto2","negrita2"]
 
-    .row.pad
+-var titulos2 = ["titulo1","titulo2","titulo3","titulo4","titulo5","titulo6"]
+-var servicios2 = ["servicios1","servicios2","servicios3","servicios4","servicios5","servicios6"]
+-var oficinasFisicas = ["descripcion"]
+-var oficinasTemporales = ["descripcion","caracteristica1","caracteristica2","caracteristica3","caracteristica4","caracteristica5"]
+-var oficinasVirtuales = ["descripcion"]
+-var virtualOro = ["caracteristica1","caracteristica2","caracteristica3","caracteristica4","caracteristica5",]
+-var virtualPlatinum = ["caracteristica1","caracteristica2","caracteristica3","caracteristica4","caracteristica5",]
+
+    .row.pad#home
       ul.col.s12.collapsible(data-collapsible="accordion")
         //(x,y,enviar,className,classInput)
         +Lis("titulos","num-titulos","4","Titulos",titulos,true,"update-titulos","i-titulos")
@@ -57,6 +65,17 @@ html(lang="es_CR")
         +Lis("parallax","num-parallax","5","Parallax",parallax,true,"update-parallax","i-parallax")
         +Lis("equipo","num-equipo","5","Nuestro Equipo",[],false,"update-equipo","i-equipo")
         +Lis("proyectos","num-proyectos","5","Nuestros Proyectos",[],false,"update-proyectos","i-proyectos")
+        //+Lis("4","Titulos",titulos,true,"update-titulos","i-titulos")
+    .row.pad.esconder#productos
+      ul.col.s12.collapsible(data-collapsible="accordion")
+        +Lis("titulos2","num-titulos2","6","Titulos",titulos2,true,"update-titulos2","i-titulos2")
+        +Lis("servicios2","num-servicios2","6","Nuestros Servicios",servicios2,true,"update-servicios2","i-servicios2")
+        +Lis("oficinasFisicas","num-oficinasFisicas","1","Oficinas Fisicas",oficinasFisicas,true,"update-oficinasFisicas","i-oficinasFisicas")
+        +Lis("oficinasTemporales","num-oficinasTemporales","6","Oficinas Temporales",oficinasTemporales,true,"update-oficinasTemporales","i-oficinasTemporales")
+        +Lis("oficinasVirtuales","num-oficinasVirtuales","5","Oficinas Virtuales",oficinasVirtuales,true,"update-oficinasVirtuales","i-oficinasVirtuales")
+        +Lis("virtualOro","num-virtualOro","5","Virtual Oro",virtualOro,true,"update-virtualOro","i-virtualOro")
+        +Lis("virtualPlatinum","num-virtualPlatinum","5","Virtual Platinum",virtualPlatinum,true,"update-virtualPlatinum","i-virtualPlatinum")
+        
         //+Lis("4","Titulos",titulos,true,"update-titulos","i-titulos")
                 
   

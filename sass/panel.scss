@@ -1,6 +1,6 @@
 .breadcrumb:last-child { color: rgba(255,255,255,0.7); }
 
-.active{ color: #ffffff; }
+.active{ color: #ffffff!important; }
 
 nav{ padding-left: 5%; }
 
@@ -41,4 +41,8 @@ input{ color: black; }
   position: fixed!important;
   right: 24px!important;
   bottom: 31px!important;
+}
+
+.esconder{
+  display: none;
 }
