@@ -4,11 +4,11 @@ $( document ).ready(function() {
       var lang = url.searchParams.get("lang");
     if(lang == "en"){
       $("#activo").find("img").attr("src","img/english.png");
-      $("#inactivo").attr("href",'index.php?lang=es');
+      $("#inactivo").attr("href",'index.html?lang=es');
       $("#inactivo").find("img").attr("src","img/spanish.png");
     }else{
       $("#activo").find("img").attr("src","img/spanish.png");
-      $("#inactivo").attr("href",'index.php?lang=en');
+      $("#inactivo").attr("href",'index.html?lang=en');
       $("#inactivo").find("img").attr("src","img/english.png");
     }
 

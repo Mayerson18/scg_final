@@ -42,7 +42,7 @@ $( document ).ready(function() {
     Bro($(".i-servicios2")[4],servicios.servicios5);
     Bro($(".i-servicios2")[5],servicios.servicios6);
 
-    $("i-oficinasFisicas").val(oficinasFisicas.descripcion);
+    Bro($(".i-oficinasFisicas"),oficinasFisicas.descripcion);
 
     Bro($(".i-oficinasTemporales")[0],oficinasTemporales.descripcion);
     Bro($(".i-oficinasTemporales")[1],oficinasTemporales.caracteristica1);
@@ -53,13 +53,62 @@ $( document ).ready(function() {
     Bro($(".i-oficinasTemporales")[6],oficinasTemporales.caracteristica6);
     Bro($(".i-oficinasTemporales")[7],oficinasTemporales.caracteristica7);
 
-    $("i-oficinasVirtuales").val(oficinasVirtuales.descripcion);
+    Bro($(".i-oficinasVirtuales"),oficinasVirtuales.descripcion);
+    Virtuales(virtualOro)
+    Virtuales(virtualPlatinum)
+
   });
+
+  function Virtuales(x){
+
+    const length = x.length;
+    $(`#num-${x}`).text(length);
+    let ret = `<ul class="collection black">`
+    for (let i = 0; i < length; i++) {
+      let li = `
+      <li class="collection-item avatar">\
+        <i class="material-icons circle">folder</i>\
+        <div class="cotainer-i-${x}">\
+            ${Lis(x[i].text)}
+        </div>
+        </p>\
+        <a href="#!" id="${i}" class="secondary-content r3 edit-${x}"><i class="material-icons">edit</i></a>\
+        <a href="#!" data-id="${i}" class="secondary-content borrar-${x}"><i class="material-icons">close</i></a>\
+      </li>`
+      ret+=li
+    }
+    ret+=`</ul><div class="relative"><a id="add-${x}" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"> add</i></a></div>`;
+    $(`#${x}`).html(ret);
+  }
+
   $(document).on("click",".update-titulos2",function(){
     ActualizarTitulos()
   });
+
+  $(document).on("click",".update-servicios2",function(){
+    ActualizarServicios()
+  });
+
+  $(document).on("click",".update-oficinasFisicas",function(){
+    ActualizarOficinasFisicas()
+  });
+
+  $(document).on("click",".update-oficinasVirtuales",function(){
+    ActualizarOficinasVirtuales()
+  });
+
+  $(document).on("click",".update-oficinasTemporales",function(){
+    ActualizarOficinasTemporales()
+  });
   Vista1();
 });
+
+function Lis(x){
+  let  ret = `
+      <li class="li"> &nbsp;&nbsp;${x}</li>\
+    `
+  return ret;
+}
 
 function ActualizarTitulos() {
 
@@ -83,8 +132,76 @@ function ActualizarTitulos() {
     });
 }
 
-function TitulosVista2(){
+function ActualizarOficinasTemporales() {
 
+    var titulosRef = firebase.database().ref("vista2/oficinasTemporales");
+    let tit1 = $($(".i-oficinasTemporales")[0]).val();
+    let tit2 = $($(".i-oficinasTemporales")[1]).val();
+    let tit3 = $($(".i-oficinasTemporales")[2]).val();
+    let tit4 = $($(".i-oficinasTemporales")[3]).val();
+    let tit5 = $($(".i-oficinasTemporales")[4]).val();
+    let tit6 = $($(".i-oficinasTemporales")[5]).val();
+    let tit7 = $($(".i-oficinasTemporales")[6]).val();
+    let tit8 = $($(".i-oficinasTemporales")[7]).val();
+
+    titulosRef.update ({
+       "descripcion": tit1,
+       "caracteristica1": tit2,
+       "caracteristica2": tit3,
+       "caracteristica3": tit4,
+       "caracteristica4": tit5,
+       "caracteristica5": tit6,
+       "caracteristica6": tit7,
+       "caracteristica7": tit8
+    },function(callback){
+      Mensaje("Datos guardados correctamente");
+    });
+}
+
+function ActualizarOficinasVirtuales() {
+
+    var titulosRef = firebase.database().ref("vista2/oficinasVirtuales");
+    let tit1 = $($(".i-oficinasVirtuales")[0]).val();
+
+    titulosRef.update ({
+       "descripcion": tit1
+    },function(callback){
+      Mensaje("Datos guardados correctamente");
+    });
+}
+
+function ActualizarOficinasFisicas() {
+
+    var titulosRef = firebase.database().ref("vista2/oficinasFisicas");
+    let tit1 = $($(".i-oficinasFisicas")[0]).val();
+
+    titulosRef.update ({
+       "descripcion": tit1
+    },function(callback){
+      Mensaje("Datos guardados correctamente");
+    });
+}
+
+function ActualizarServicios() {
+
+    var titulosRef = firebase.database().ref("vista2/servicios");
+    let tit1 = $($(".i-servicios2")[0]).val();
+    let tit2 = $($(".i-servicios2")[1]).val();
+    let tit3 = $($(".i-servicios2")[2]).val();
+    let tit4 = $($(".i-servicios2")[3]).val();
+    let tit5 = $($(".i-servicios2")[4]).val();
+    let tit6 = $($(".i-servicios2")[5]).val();
+
+    titulosRef.update ({
+       "servicios1": tit1,
+       "servicios2": tit2,
+       "servicios3": tit3,
+       "servicios4": tit4,
+       "servicios5": tit5,
+       "servicios6": tit6
+    },function(callback){
+      Mensaje("Datos guardados correctamente");
+    });
 }
 
 function Bro(x,y){
