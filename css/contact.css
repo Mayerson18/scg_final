@@ -3,9 +3,9 @@
   margin-bottom: 77px;
 }
 
-#google_translate_element{display:none!important;}
+#google_translate_element{}
 
-.goog-te-banner-frame{display:none!important;}
+.goog-te-banner-frame{}
 
 .contact-top{
   color: #ffffff;
