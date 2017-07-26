@@ -18,11 +18,11 @@ $( document ).ready(function() {
     vista1.on('value', function(snap) {
        const x = snap.val();
        const contactenos = x.contactenos;
-      $(".telefono").text(contactenos.telefono);
-      $(".address").html(`<strong>Dirección : </strong>${contactenos.direccion}`);
-      $(".email-in").text(contactenos.correo);
-      $(".telefono").text(contactenos.telefono);
-      $(".p-contact").text(contactenos.texto);
+       $(".telefono").text(contactenos.telelfono);
+       $(".address").html(`<strong>Dirección : </strong>${contactenos.direccion}`);
+       $(".email-in").text(contactenos.correo);
+       $(".p-contact").text(contactenos.texto);
+       $(".contact-title").text(contactenos.titulo);
     });
     var vista2 = firebase.database().ref().child('vista2');
     vista2.on('value', function(snap) {

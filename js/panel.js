@@ -306,34 +306,27 @@ function Vista1(){
         let equipo = x.equipo;
         let i =0;
 
-        $("#titulo1").val(titulos.titulo)
-        $("#titulo1").siblings("label").addClass("active")
-        $("#titulo2").val(titulos.titulo2)
-        $("#titulo2").siblings("label").addClass("active")
-        $("#titulo3").val(titulos.titulo3)
-        $("#titulo3").siblings("label").addClass("active")
-        $("#titulo4").val(titulos.titulo4)
-        $("#titulo4").siblings("label").addClass("active")
+        Bro($(".i-contactenos")[0],contactenos.correo)
+        Bro($(".i-contactenos")[1],contactenos.direccion)
+        Bro($(".i-contactenos")[2],contactenos.telelfono)
+        Bro($(".i-contactenos")[3],contactenos.texto)
+        Bro($(".i-contactenos")[4],contactenos.titulo)
 
-        $("#titulo").val(nosotros.titulo)
-        $("#titulo").siblings("label").addClass("active")
-        $("#parrafo1").val(nosotros.p1)
-        $("#parrafo1").siblings("label").addClass("active")
-        $("#parrafo2").val(nosotros.p2)
-        $("#parrafo2").siblings("label").addClass("active")
-        $("#imagen").val(nosotros.img)
-        $("#imagen").siblings("label").addClass("active")
+        Bro(("#titulo1"),titulos.titulo)
+        Bro(("#titulo2"),titulos.titulo2)
+        Bro(("#titulo3"),titulos.titulo3)
+        Bro(("#titulo4"),titulos.titulo4)
 
-        $("#principal").val(parallax.titulo)
-        $("#principal").siblings("label").addClass("active")
-        $("#texto1").val(parallax.texto1)
-        $("#texto1").siblings("label").addClass("active")
-        $("#texto2").val(parallax.texto2)
-        $("#texto2").siblings("label").addClass("active")
-        $("#negrita1").val(parallax.negrita1)
-        $("#negrita1").siblings("label").addClass("active")
-        $("#negrita2").val(parallax.negrita2)
-        $("#negrita2").siblings("label").addClass("active")
+        Bro(("#titulo"),nosotros.titulo)
+        Bro(("#parrafo1"),nosotros.p1)
+        Bro(("#parrafo2"),nosotros.p2)
+        Bro(("#imagen"),nosotros.img)
+
+        Bro(("#principal"),parallax.titulo)
+        Bro(("#texto1"),parallax.texto1)
+        Bro(("#texto2"),parallax.texto2)
+        Bro(("#negrita1"),parallax.negrita1)
+        Bro(("#negrita2"),parallax.negrita2)
 
         let length = servicios.length
         $("#num-servicios").text(length);
@@ -470,7 +463,31 @@ function Vista1(){
       $(".update-parallax").on("click",function(){
         updateParallax();
       });
+
+      $(".update-contactenos").on("click",function(){
+        updateContactenos();
+      });
 }
+
+
+    function updateContactenos(){
+      var contactenosRef = firebase.database().ref("vista1/contactenos");
+      let tit1 = $($(".i-contactenos")[0]).val();
+      let tit2 = $($(".i-contactenos")[1]).val();
+      let tit3 = $($(".i-contactenos")[2]).val();
+      let tit4 = $($(".i-contactenos")[3]).val();
+      let tit5 = $($(".i-contactenos")[4]).val();
+
+      contactenosRef.update ({
+         "correo": tit1,
+         "direccion": tit2,
+         "telelfono": tit3,
+         "texto": tit4,
+         "titulo": tit5
+      },function(callback){
+        Mensaje("Datos guardados correctamente");
+      });
+    }
 
 function addServicios(){
   var serviciosRef = firebase.database().ref(`vista1/servicios`);

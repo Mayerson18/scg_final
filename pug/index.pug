@@ -53,6 +53,7 @@ html(lang="es_CR")
 -var oficinasFisicas = ["descripcion"]
 -var oficinasTemporales = ["descripcion","caracteristica1","caracteristica2","caracteristica3","caracteristica4","caracteristica5","caracteristica6","caracteristica7"]
 -var oficinasVirtuales = ["descripcion"]
+-var contactenos = ["correo","direccion","telefono","texto","titulo"]
 
     .row.pad#home
       ul.col.s12.collapsible(data-collapsible="accordion")
@@ -63,6 +64,7 @@ html(lang="es_CR")
         +Lis("parallax","num-parallax","5","Parallax",parallax,true,"update-parallax","i-parallax")
         +Lis("equipo","num-equipo","5","Nuestro Equipo",[],false,"update-equipo","i-equipo")
         +Lis("proyectos","num-proyectos","5","Nuestros Proyectos",[],false,"update-proyectos","i-proyectos")
+        +Lis("contactenos","num-contactenos","5","Contactenos",contactenos,true,"update-contactenos","i-contactenos")
         //+Lis("4","Titulos",titulos,true,"update-titulos","i-titulos")
     .row.pad.esconder#productos
       ul.col.s12.collapsible(data-collapsible="accordion")

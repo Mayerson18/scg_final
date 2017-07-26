@@ -55,11 +55,11 @@ $( document ).ready(function() {
        $(".owl-prev").text("");
        $(".owl-next").text("");
 
-      $(".telefono").text(contactenos.telefono);
+      $(".telefono").text(contactenos.telelfono);
       $(".address").html(`<strong>Dirección : </strong>${contactenos.direccion}`);
       $(".email-in").text(contactenos.correo);
-      $(".telefono").text(contactenos.telefono);
       $(".p-contact").text(contactenos.texto);
+      $(".contact-title").text(contactenos.titulo);
     });
 
     function Proyectos(item){
