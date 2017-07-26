@@ -54,31 +54,120 @@ $( document ).ready(function() {
     Bro($(".i-oficinasTemporales")[7],oficinasTemporales.caracteristica7);
 
     Bro($(".i-oficinasVirtuales"),oficinasVirtuales.descripcion);
-    Virtuales(virtualOro)
-    Virtuales(virtualPlatinum)
+    Virtuales(virtualOro,"virtualOro")
+    Virtuales(virtualPlatinum,"virtualPlatinum")
 
   });
 
-  function Virtuales(x){
+  $(document).on("click","#add-virtualOro",function(){
+    addVirtualOro();
+  });
+
+  $(document).on("click","#add-virtualPlatinum",function(){
+    addVirtualPlatinum();
+  });
+
+  $(document).on("click",".borrar-virtualOro",function(){
+    removeVirtualOro($(this).attr("data-id"));
+  });
+
+  $(document).on("click",".edit-virtualOro",function(){
+    let padre = ($(this).siblings(".cotainer-i-virtualOro"));
+    let array = []
+    padre.children().each(function(index,val){
+      array.push($(val).find("input").val());
+    });
+    updatevirtualOro(array,$(this).attr("id"));
+  });
+
+  $(document).on("click",".edit-virtualPlatinum",function(){
+    let padre = ($(this).siblings(".cotainer-i-virtualPlatinum"));
+    let array = []
+    padre.children().each(function(index,val){
+      array.push($(val).find("input").val());
+    });
+    updatevirtualPlatinum(array,$(this).attr("id"));
+  });
+
+
+  function removeVirtualOro(id){
+    var equipoRef = firebase.database().ref(`vista2/virtualOro/${id}`);
+    equipoRef.remove ();
+  };
+
+  function removeVirtualPlatinum(id){
+    var equipoRef = firebase.database().ref(`vista2/virtualPlatinum/${id}`);
+    equipoRef.remove ();
+  };
+
+  function addVirtualOro(){
+    var serviciosRef = firebase.database().ref(`vista2/virtualOro`);
+    let temporal = [];
+    serviciosRef.on('value', function(snap) {
+      temporal= snap.val();
+    })
+    let objeto = {
+      "text": ""
+    }
+    temporal.push(objeto);
+    serviciosRef.set (temporal);
+  };
+
+  function addVirtualPlatinum(){
+    var serviciosRef = firebase.database().ref(`vista2/virtualPlatinum`);
+    let temporal = [];
+    serviciosRef.on('value', function(snap) {
+      temporal= snap.val();
+    })
+    let objeto = {
+      "text": ""
+    }
+    temporal.push(objeto);
+    serviciosRef.set (temporal);
+  };
+
+  function updatevirtualOro(x,index){
+    var serviciosRef = firebase.database().ref(`vista2/virtualOro/${index}`);
+    serviciosRef.update ({
+      "text": x[0]
+    },function(callback){
+      Mensaje("Datos guardados correctamente");
+    });
+  };
+
+  function updatevirtualPlatinum(x,index){
+    console.log(x)
+    console.log(index)
+    var serviciosRef = firebase.database().ref(`vista2/virtualPlatinum/${index}`);
+    serviciosRef.update ({
+      "text": x[0]
+    },function(callback){
+      Mensaje("Datos guardados correctamente");
+    });
+  };
+
+
+
+  function Virtuales(x,y){
 
     const length = x.length;
-    $(`#num-${x}`).text(length);
+    $(`#num-${y}`).text(length);
     let ret = `<ul class="collection black">`
     for (let i = 0; i < length; i++) {
       let li = `
       <li class="collection-item avatar">\
         <i class="material-icons circle">folder</i>\
-        <div class="cotainer-i-${x}">\
-            ${Lis(x[i].text)}
+        <div class="cotainer-i-${y}">\
+            ${Inputs(`li${i}`,x[i].text)}
         </div>
         </p>\
-        <a href="#!" id="${i}" class="secondary-content r3 edit-${x}"><i class="material-icons">edit</i></a>\
-        <a href="#!" data-id="${i}" class="secondary-content borrar-${x}"><i class="material-icons">close</i></a>\
+        <a href="#!" id="${i}" class="secondary-content r3 edit-${y}"><i class="material-icons">edit</i></a>\
+        <a href="#!" data-id="${i}" class="secondary-content borrar-${y}"><i class="material-icons">close</i></a>\
       </li>`
       ret+=li
     }
-    ret+=`</ul><div class="relative"><a id="add-${x}" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"> add</i></a></div>`;
-    $(`#${x}`).html(ret);
+    ret+=`</ul><div class="relative"><a id="add-${y}" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"> add</i></a></div>`;
+    $(`#${y}`).html(ret);
   }
 
   $(document).on("click",".update-titulos2",function(){
@@ -102,13 +191,6 @@ $( document ).ready(function() {
   });
   Vista1();
 });
-
-function Lis(x){
-  let  ret = `
-      <li class="li"> &nbsp;&nbsp;${x}</li>\
-    `
-  return ret;
-}
 
 function ActualizarTitulos() {
 

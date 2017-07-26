@@ -14,6 +14,16 @@ $( document ).ready(function() {
   };
   firebase.initializeApp(config);
 
+    var vista1 = firebase.database().ref().child('vista1');
+    vista1.on('value', function(snap) {
+       const x = snap.val();
+       const contactenos = x.contactenos;
+      $(".telefono").text(contactenos.telefono);
+      $(".address").html(`<strong>Dirección : </strong>${contactenos.direccion}`);
+      $(".email-in").text(contactenos.correo);
+      $(".telefono").text(contactenos.telefono);
+      $(".p-contact").text(contactenos.texto);
+    });
     var vista2 = firebase.database().ref().child('vista2');
     vista2.on('value', function(snap) {
        const x = snap.val();
@@ -24,7 +34,7 @@ $( document ).ready(function() {
        let oficinasVirtuales = x.oficinasVirtuales;
        let virtualOro = x.virtualOro;
        let virtualPlatinum = x.virtualPlatinum;
-       
+
        $(".banner-text").text(titulos.titulo);
        $("#titulo2").text(titulos.titulo2);
        $("#titulo3").text(titulos.titulo3);
