@@ -111,7 +111,7 @@
         <p class="body-section-1">
           Cuenta con inmejorables instalaciones y ofrece los servicios a las
             más competentes tarifas del mercado local. Localizado en una de las
-            zonas de mayor relevancia del país, a tan solo 800 metros del
+            zonas de mayor relevancia del país, a tan solo 900 metros del
             centro comercial Multiplaza de Escazú, y a 20 minutos del aeropuerto
             internacional Santamaría.
         </p>
@@ -134,7 +134,7 @@
         <h2 class="title-2" id="titulo2">Oficinas Físicas</h2>
         <div class="col-lg-6 col-md-6 col-xs-12">
           <img src="img/oficinanew.png" class="img-responsive" alt="SCG">
-          <div class="llamenos"><div class="in-llamenos">LLAMENOS AL <strong>+(506) 2215 5000</strong></div></div>
+          <div class="llamenos"><div class="in-llamenos">LLÁMENOS AL <strong>+(506) 2215 5000</strong></div></div>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-12 sectionoficina">
           <p class="body-section-1" id="oficinasFisicas">Nuestra perfecta ubicación en Guachipelin Escazú, le permitirá disfrutar de su oficina privada en la mejor zona comercial y empresarial del país. Completamente amobladas y con tecnología de punta, SCG le ofrece oficinas físicas permanentes para aumentar tanto su imagen corporativa como su productividad. Al tener los servicios de su oficina física podrá disfrutar de las áreas de cocina y café que son un espacio perfecto para tomar un descanso corto durante la jornada laboral.
@@ -154,7 +154,7 @@
         <div class="col-lg-6 col-md-6 col-xs-12 sectionoficina">
           <p class="body-section-1" id="oficinasTemporales">Tiene una reunión de última hora ¿No tiene oficina actualmente? ¿Desea privacidad y confort?
           <br>
-          Tenemos la solución : Nuestro servicio de oficinas temporales, disponible para su uso por horas, le permitirá poder disfrutar de oficinas ejecutivas con  parqueo , aire acondicionado , servicio telefónico de larga distancia y  wifi por las horas que estime necesario.Solo llame y reserve con anticipación y de la impresión que tanto necesita su negocio al mejor costo del mercado.  Otros beneficios de nuestras oficinas temporales son:
+          Tenemos la solución: Nuestro servicio de oficinas temporales, disponible para su uso por horas, le permitirá poder disfrutar de oficinas ejecutivas con  parqueo , aire acondicionado , servicio telefónico de larga distancia y  wifi por las horas que estime necesario. Solo llame y reserve con anticipación y de la impresión que tanto necesita su negocio al mejor costo del mercado.  Otros beneficios de nuestras oficinas temporales son:
 
           </p>
           <ul id="ul" class="ul-oficinasTemporales">
@@ -174,7 +174,7 @@
         <h2 class="title-2" id="titulo4">Oficinas Virtuales</h2>
         <div class="col-lg-6 col-md-6 col-xs-12">
           <img src="img/oficina4.jpg" class="img-responsive" alt="SCG">
-          <div class="llamenos"><div class="in-llamenos">LLAMENOS AL <strong>+(506) 2215 5000</strong></div></div>
+          <div class="llamenos"><div class="in-llamenos">LLÁMENOS AL <strong>+(506) 2215 5000</strong></div></div>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-12 sectionoficina">
           <p class="body-section-1" id="oficinasVirtuales">Este novedoso concepto de oficina es una opción para la
