@@ -56,7 +56,7 @@ $( document ).ready(function() {
        $(".owl-next").text("");
 
       $(".telefono").text(contactenos.telefono);
-      $(".address").html(`<strong>Dirección : </strong>${contactenos.direccion}`);
+      $(".address").html(`<strong>Dirección: </strong>${contactenos.direccion}`);
       $(".email-in").text(contactenos.correo);
       $(".telefono").text(contactenos.telefono);
       $(".p-contact").text(contactenos.texto);

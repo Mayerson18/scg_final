@@ -81,12 +81,12 @@
   			</div>
   			<div id="navbar" class="navbar-collapse collapse">
   				<ul class="nav navbar-nav navbar-right">
-  					<li><a href="#spyini">INICIO</a></li>
-  					<li><a href="#spyservices">SERVICIOS</a></li>
-            <li><a href="#spyquien">QUIENES SOMOS</a></li>
+  					<li><a href="index.php#spyini">INICIO</a></li>
+  					<li><a href="index.php#spyservices">SERVICIOS</a></li>
+            <li><a href="index.php#spyquien">QUIENES SOMOS</a></li>
   					<li><a href="index2.php">ALQUILER DE OFICINAS</a></li>
-            <li><a href="#spyproyects">PROYECTOS</a></li>
-            <li><a href="#spycontact">CONTÁCTENOS</a></li>
+            <li><a href="index.php#spyproyects">PROYECTOS</a></li>
+            <li><a href="index.php#spycontact">CONTÁCTENOS</a></li>
             <li>
               <li class="dropdown">
                 <a id="activo" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="lang" data-lang="español" src="img/spanish.png" alt="" ></a>
