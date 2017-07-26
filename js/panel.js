@@ -1,4 +1,5 @@
 "use strict";
+
 let w;
 $( document ).ready(function() {
   $('.breadcrumb').click(function(){
