@@ -63,9 +63,15 @@ $( document ).ready(function() {
     });
 
     function Proyectos(item){
+      let ar = JSON.parse(item.img)
+      let imgs=[]
+      for (let i = 0; i < ar.length; i++) {
+        imgs.push(ar[i].url);
+      }
+      console.log(imgs)
       const ret =
       `<div class="item">\
-          <img src="${item.src}" data-img='${item.img}' data-index="0">\
+          <img src="${item.src}" data-img='${JSON.stringify(imgs)}' data-index="0">\
           <h4 class="item-title">\
             ${item.titulo}
           </h4>\
