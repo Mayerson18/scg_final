@@ -43,10 +43,40 @@ input{ color: black; }
   bottom: 31px!important;
 }
 
+
+label.active{
+  color: #26a69a!important;
+}
+
+.imgs{
+  width: 100px;
+  height: 59px;
+
+}
+
+.centrado{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+}
+
 .esconder{
   display: none;
 }
 
-label.active{
-  color: #26a69a!important;
+.img-icon{
+  position: absolute;
+  margin-left: -26px;
+  cursor: pointer;
+  color: transparent;
+}
+
+.rojo{
+  color: red;
 }

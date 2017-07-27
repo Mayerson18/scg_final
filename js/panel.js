@@ -15,10 +15,36 @@ $( document ).ready(function() {
     authDomain: "panel-e957f.firebaseapp.com",
     databaseURL: "https://panel-e957f.firebaseio.com",
     projectId: "panel-e957f",
-    storageBucket: "",
+    storageBucket: "gs://panel-e957f.appspot.com/",
     messagingSenderId: "800679341255"
   };
   firebase.initializeApp(config);
+
+  /*fileButton.addEventListener('change', function(e) {
+    //Obtener archivo
+    var file = e.target.files[0];
+    // Crear un storage ref
+    var storageRef = firebase.storage().ref('mis_fotos/' + file.name);
+    // Subir archivo
+    var task = storageRef.put(file);
+    // Actualizar barra progreso
+    task.on('state_changed',
+      function progress(snapshot) {
+        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        $(".uploader").value(percentage);
+        //uploader.value = percentage;
+      },
+      function error(err) {
+      },
+      function complete() {
+      }
+      )
+  });*/
+
+  /*<div class="progress">
+      <div class="determinate" style="width: 70%"></div>
+  </div>*/
+
   var vista2 = firebase.database().ref().child('vista2');
   vista2.on('value', function(snap) {
     const x = snap.val()
@@ -191,7 +217,104 @@ $( document ).ready(function() {
     ActualizarOficinasTemporales()
   });
   Vista1();
+  //Img();
+
 });
+
+function GetImg(c,f){
+    var proyectosRef = firebase.database().ref(`vista1/${f}`);
+    proyectosRef.on('value', function(snap) {
+      const x = snap.val()
+      let ret = ""
+      for (let i = 0; i < x.length; i++) {
+        let y = (JSON.parse(x[i].img));
+        for (let j = 0; j < y.length; j++) {
+          ret += `<img class="img-${f} imgs" src="${y[j].url}"><i class="material-icons img-icon" data-id="${i}" data-src="${y[j].file}">close</i>`
+        }
+        $(`${c}[data-id="${i}"]`).html(ret);
+        ret=""
+      }
+    })
+}
+
+$(document).on("click",".img-icon",function(){
+  const src = $(this).data("src")
+  const id = $(this).data("id")
+  let parent = $(this).parent()
+  var desertRef = firebase.storage().ref('proyectos/'+src);
+  desertRef.delete().then(function() {
+    Mensaje("Imagen borrada con exito!")
+  }).catch(function(error) {
+    console.log(error);
+    // Uh-oh, an error occurred!
+  });
+
+  $(this).prev().remove();
+  $(this).remove();
+  let imgsx = []
+  parent.children().each(function(index,val){
+    if($(val).prop("tagName") == "IMG")
+      imgsx.push({url:$(val).attr("src"),file:$(val).next().attr("data-src")});
+  });
+
+    var proyectosRef = firebase.database().ref(`vista1/proyectos/${id}`);
+    proyectosRef.update ({
+      "img": JSON.stringify(imgsx)
+    },function(callback){
+      Mensaje("Datos guardados correctamente");
+    });
+
+})
+
+$(document).on({
+    mouseenter: function () {
+      $(this).next().addClass("rojo")
+    },
+    mouseleave: function () {
+        $(this).next().removeClass("rojo")
+    }
+},".imgs");
+
+$(document).on({
+    mouseenter: function () {
+      this.className += " rojo"
+    },
+    mouseleave: function () {
+        $(this).removeClass("rojo")
+    }
+},".img-icon");
+
+    function Img(className,folder){
+
+      GetImg(className,folder);
+
+      /*
+      var pro = firebase.database().ref(`vista1/${folder}/${id}`);
+      let imagenes = pro.img;
+      console.log(imagenes);
+      // Subir archivo
+      var task = storageRef.put(file);
+      // Actualizar barra progreso
+      task.on('state_changed',
+        function progress(snapshot) {
+          var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          $(".uploader").value(percentage);
+          //uploader.value = percentage;
+        },
+        function error(err) {
+        },
+        function complete() {
+        }
+        )
+      /*
+      storageRef.getDownloadURL().then(function(url2) {
+        console.log(url2)
+        console.log($($(".img-proyectos")[0]))
+        $($(".img-proyectos")[0]).attr("src",url2)
+      });*/
+    }
+
+
 
 function ActualizarTitulos() {
 
@@ -380,8 +503,7 @@ function Vista1(){
           <li class="collection-item avatar">\
             <i class="material-icons circle">folder</i>\
             <div class="cotainer-i-proyectos">\
-                ${Inputs("imagenes",proyectos[i].img)}
-                ${Inputs("imagenPrincipal",proyectos[i].src)}
+                ${File(`imagenes`,i,"proyectos")}
                 ${Inputs("titulo",proyectos[i].titulo)}
                 ${Inputs("texto",proyectos[i].texto)}
             </div>
@@ -393,6 +515,7 @@ function Vista1(){
         }
         ret+=`</ul><div class="relative"><a id="add-proyectos" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons"> add</i></a></div>`;
         $("#proyectos").html(ret);
+        Img(".file-proyectos","proyectos");
 
       });
 
@@ -433,12 +556,27 @@ function Vista1(){
       });
 
       $(document).on("click",".edit-proyectos",function(){
-        let padre = ($(this).siblings(".cotainer-i-proyectos"));
+        let padre = ($(this).siblings(".cotainer-i-proyectos").find(".inputs"));
+        let padre2 = ($(this).siblings(".cotainer-i-proyectos").find(".file-proyectos"));
+        let input = ($(this).siblings(".cotainer-i-proyectos").find(".file-field").find(".btn").find("input"));
+        const fileName = (input.val().split('\\').pop())
+        const file = input[0].files[0]
         let array = []
-        padre.children().each(function(index,val){
-          array.push($(val).find("input").val());
+        let imgs2 = []
+
+        padre2.children().each(function(index,val){
+          if($(val).prop("tagName") == "IMG"){
+            imgs2.push({url:$(val).attr("src"),file:$(val).next().attr("data-src")});
+          }
         });
-        updateProyectos(array,$(this).attr("id"));
+        let imgs = []
+        padre.children().each(function(index,val){
+          if($(val).attr("class") == "i-servicios")
+            array.push($(val).val());
+        });
+        updateProyectos(array,$(this).attr("id"),fileName);
+        console.log(imgs2)
+        UpImage(fileName,file,imgs2,$(this).attr("id"));
       });
 
       $(document).on("click","#add-proyectos",function(){
@@ -467,6 +605,36 @@ function Vista1(){
       $(".update-contactenos").on("click",function(){
         updateContactenos();
       });
+}
+
+function UpImage(fileName,file,x,index){
+
+  var storageRef = firebase.storage().ref('proyectos/' + fileName);
+      // Subir archivo
+      var task = storageRef.put(file);
+      // Actualizar barra progreso
+      task.on('state_changed',
+      function progress(snapshot) {
+        $(".centrado").removeClass("esconder");
+      },
+      function error(err) {
+        console.log(err)
+      },
+      function complete(snap) {
+        $(".centrado").addClass("esconder");
+        var storageRef = firebase.storage().ref();
+        var imagesRef = storageRef.child('proyectos/'+fileName);
+        imagesRef.getDownloadURL().then(function(url) {
+          x.push({url:url,file:fileName});
+          var proyectosRef = firebase.database().ref(`vista1/proyectos/${index}`);
+          proyectosRef.update ({
+            "img": JSON.stringify(x)
+          },function(callback){
+            Mensaje("Datos guardados correctamente");
+          });
+        });
+      }
+  )
 }
 
 
@@ -566,15 +734,13 @@ function removeProyectos(id){
   proyectosRef.remove ();
 };
 
-function updateProyectos(x,index){
+function updateProyectos(x,index,fileName){
   var proyectosRef = firebase.database().ref(`vista1/proyectos/${index}`);
   proyectosRef.update ({
-    "img": x[0],
-    "src": x[1],
-    "titulo": x[2],
-    "texto": x[3]
+    "titulo": x[0],
+    "texto": x[1]
   },function(callback){
-    Mensaje("Datos guardados correctamente");
+
   });
 };
 
@@ -596,11 +762,28 @@ function addProyectos(){
 };
 
     function Inputs(id,texto){
-     return  `<div class="input-field">\
+     return  `<div class="input-field inputs">\
         <input id="${id}" type="text" value='${texto}' class="i-servicios">\
         <label for="${id}" class="active"> ${id}</label>\
       </div>`;
     }
+
+    function File(x,id,y){
+     return  `<div class="file-field input-field i-servicios">
+       <div class="btn">
+         <span>${x}</span>
+         <input type="file" data-id="${id}" class="up-${y}">
+       </div>
+       <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+     </div>
+     <div class="file-${y}" data-id="${id}">
+
+     </div>`;
+    }
+
+
 
     function Mensaje(texto){
       Materialize.toast(texto, 4000);
